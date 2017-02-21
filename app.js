@@ -4,6 +4,17 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var MongoClient = require('mongodb').MongoClient
+
+MongoClient.connect('mongodb://nikitapuzanenko:p7708541@ds157439.mlab.com:57439/heroku_vxg36dwt', function (err, db) {
+    if (err) throw err
+
+    db.collection('characters').find().toArray(function (err, result) {
+        if (err) throw err
+
+        console.log(result)
+    })
+})
 
 var index = require('./routes/index');
 var users = require('./routes/users');
