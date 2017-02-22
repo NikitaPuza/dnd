@@ -1,0 +1,28 @@
+<h1>{{character.objectID}}</h1>
+
+<a href="/">back to character select</a>
+<div class="center">
+    <div class="character-info">
+        <div id="basic" class="basic">
+            <li>Class:{{character.class}}</li>
+            <li>Race:{{character.race}}</li>
+            <li>Level:{{character.level}}</li>
+            <li>Armor Class:{{character.armorClass}}</li>
+            <li>Spell Save:{{character.spellSave}}</li>
+        </div>
+        <div id="hitpoints" class="hitpoints">
+            <label>Hit Points</label>
+            <input type="text" value={{character.hitPoints}}>
+        </div>
+        <ul id="attributes">
+            {{#eachProperty character.attributes}}
+                <li class="attributes">{{property}}:{{value}}</li>
+            {{/eachProperty}}
+        </ul>
+        <ul id="skills">
+            {{#eachProperty character.skills}}
+                <li class="skills">{{property}}:{{value}}</li>
+            {{/eachProperty}}
+        </ul>
+    </div>
+</div>

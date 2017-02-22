@@ -4,19 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var MongoClient = require('mongodb').MongoClient
+var algoliasearch = require('algoliasearch');
+var hbs = require('hbs');
 
-MongoClient.connect('mongodb://nikitapuzanenko:p7708541@ds157439.mlab.com:57439/heroku_vxg36dwt', function (err, db) {
-    if (err) throw err
-
-    db.collection('characters').find().toArray(function (err, result) {
-        if (err) throw err
-
-        console.log(result)
-    })
-})
-
-var index = require('./routes/index');
+var client = algoliasearch('Y8Q3VSESJ3', 'f363abec573cdb3fbfdac0bf61135efc');
+var index = client.initIndex('dnd_index');
 
 var app = express();
 
@@ -29,8 +21,38 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
 
-app.use('/', index);
+
+hbs.registerHelper('eachProperty', function(context, options) {
+    var ret = "";
+    for(var prop in context)
+    {
+        ret = ret + options.fn({property:prop,value:context[prop]});
+    }
+    return ret;
+});
+
+app.get('/', function(req, res) {
+    index.getObjects(['Suki','Gimble','Fleo'], function (err, content) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.render('index', {characters:content});
+        }
+    });
+});
+
+app.get('/:character',function(req, res) {
+    index.getObject(req.params.character, function (err, content) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(content);
+            res.render('character', {character: content})
+        }
+    })
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -40,7 +62,7 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function(err, req, res) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

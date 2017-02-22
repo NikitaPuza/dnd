@@ -1,18 +1,20 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<h1>Select you character</h1>
 
-<div id="main-top">
-    <label>Name</label><input type="text" name="name" id="name"/>
-    <label>Race</label><input type="text" name="race" id="race"/>
-    <label>Level</label><input type="text" name="level" id="level"/>
-    <label>Class</label><input type="text" name="class" id="class"/>
-    <label>AC</label><input type="text" name="AC" id="AC"/>
+
+<div class="center">
+<div class="character-selector">
+    <ul id="character-list">
+    {{#each characters.results}}
+      <li class="character-object">
+           <a class="character-link" href="{{objectID}}">
+               {{objectID}}
+                {{race}}
+                {{class}}
+               {{level}}
+           </a>
+          <a href="{{objectID}}">   <img src="{{image}}"/> </a>
+        </li>
+    {{/each}}
+    </ul>
 </div>
-<div id="right">
-    <label>STR</label><input class="attribute" type="text" name="STR" id="STR"/>
-    <label>DEX</label><input class="attribute" type="text" name="DEX" id="DEX"/>
-    <label>CON</label><input class="attribute" type="text" name="CON" id="CON"/>
-    <label>WIS</label><input class="attribute" type="text" name="WIS" id="WIS"/>
-    <label>INT</label><input class="attribute" type="text" name="INT" id="INT"/>
-    <label>CHA</label><input class="attribute" type="text" name="CHA" id="CHA"/>
 </div>
