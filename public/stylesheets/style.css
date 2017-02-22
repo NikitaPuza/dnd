@@ -24,3 +24,7 @@ a.character-link {
 h1 {
   text-align: center;
 }
+img {
+  width:300px;
+  height:350px;
+}
