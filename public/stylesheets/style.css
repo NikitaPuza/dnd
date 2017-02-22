@@ -28,3 +28,18 @@ img {
   width:300px;
   height:350px;
 }
+
+p {
+  display:inline-block;
+}
+ul {
+  list-style-type: none;
+}
+#basic {
+  display: flex;
+  margin: auto;
+  flex-direction: row;
+}
+.basic {
+  margin:auto;
+}

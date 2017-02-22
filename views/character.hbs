@@ -3,12 +3,12 @@
 <a href="/">back to character select</a>
 <div class="center">
     <div class="character-info">
-        <div id="basic" class="basic">
-            <li>Class:{{character.class}}</li>
-            <li>Race:{{character.race}}</li>
-            <li>Level:{{character.level}}</li>
-            <li>Armor Class:{{character.armorClass}}</li>
-            <li>Spell Save:{{character.spellSave}}</li>
+        <div id="basic">
+            <p class="basic">Class:{{character.class}}</p>
+            <p class="basic">Race:{{character.race}}</p>
+            <p class="basic">Level:{{character.level}}</p>
+            <p class="basic">Armor Class:{{character.armorClass}}</p>
+            <p class="basic">Spell Save:{{character.spellSave}}</p>
         </div>
         <div id="hitpoints" class="hitpoints">
             <label>Hit Points</label>
@@ -16,7 +16,7 @@
         </div>
         <ul id="attributes">
             {{#eachProperty character.attributes}}
-                <li class="attributes">{{property}}:{{value}}</li>
+                <li class="attributes"><p>{{property}}</p>:{{value}}</li>
             {{/eachProperty}}
         </ul>
         <ul id="skills">
