@@ -1,28 +1,66 @@
 <h1>{{character.objectID}}</h1>
 
 <a href="/">back to character select</a>
-<div class="center">
-    <div class="character-info">
-        <div id="basic">
-            <p class="basic">Class:{{character.class}}</p>
-            <p class="basic">Race:{{character.race}}</p>
-            <p class="basic">Level:{{character.level}}</p>
-            <p class="basic">Armor Class:{{character.armorClass}}</p>
-            <p class="basic">Spell Save:{{character.spellSave}}</p>
+<div class="center container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-12 col-sm-2">
+                <div class="info-label">Class</div>
+                <input type="text" class="form-control info-content" value={{character.class}}></input>
+            </div>
+            <div class="col-xs-12 col-md-2">
+                <div class="info-label">Race</div>
+                <input type="text" class="form-control info-content" value={{character.race}}></input>
+            </div>
+            <div class="col-xs-12 col-md-2">
+                <div class="info-label">Level</div>
+                <input type="text" class="form-control info-content" value={{character.level}}></input>
+            </div>
+            <div class="col-xs-12 col-md-2">
+                <div class="info-label">Armor Class</div>
+                <input type="text" class="form-control info-content" value={{character.armorClass}}></input>
+            </div>
+            <div class="col-xs-12 col-md-2">
+                <div class="info-label">Spell Save</div>
+                <input type="text" class="form-control info-content" value={{character.spellSave}}></input>
+            </div>
+            <div class="col-xs-12 col-md-2">
+                <div class="info-label">Initiative</div>
+                <input type="text" class="form-control info-content" value={{character.initiative}}></input>
+            </div>
         </div>
-        <div id="hitpoints" class="hitpoints">
-            <label>Hit Points</label>
-            <input type="text" value={{character.hitPoints}}>
         </div>
-        <ul id="attributes">
-            {{#eachProperty character.attributes}}
-                <li class="attributes"><p>{{property}}</p>:{{value}}</li>
-            {{/eachProperty}}
-        </ul>
-        <ul id="skills">
-            {{#eachProperty character.skills}}
-                <li class="skills">{{property}}:{{value}}</li>
-            {{/eachProperty}}
-        </ul>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+    <div class="row">
+        <div class="col-xs-12 col-md-2">
+            <div class="info-label">Hit Points</div>
+            <input type="text" class="form-control info-content" value={{character.hitPoints}}></input>
+        </div>
+    </div>
+        </div>
+    </div>
+        <div class="attributes row">
+        {{#eachProperty character.attributes}}
+        <div class="col-atr-1">
+            <div class="info-label">{{property}}</div>
+            <input type="text" class="form-control info-content" value={{value}}></input>
+        </div>
+        {{/eachProperty}}
+        </div>
+    <div class="skill row">
+        <div class="col-tbl-1">
+            <div class="info-label">Skills</div>
+            <table class="skill-table .table-hover">
+        {{#eachProperty character.skills}}
+            <tr>
+                <td class="skill-name">{{property}}</td>
+                <td><input class="skill-value" type="text" value={{value}}></input></td>
+            </tr>
+        {{/eachProperty}}
+            </table>
+            </div>
     </div>
 </div>

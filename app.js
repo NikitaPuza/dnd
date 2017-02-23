@@ -46,9 +46,8 @@ app.get('/', function(req, res) {
 app.get('/:character',function(req, res) {
     index.getObject(req.params.character, function (err, content) {
         if (err) {
-            console.log(err);
+         //   console.log(err);
         } else {
-            console.log(content);
             res.render('character', {character: content})
         }
     })

@@ -1,4 +1,4 @@
-<h1>Select you character</h1>
+<h1>Select your character</h1>
 
 
 <div class="center">
@@ -7,12 +7,9 @@
     {{#each characters.results}}
       <li class="character-object">
            <a class="character-link" href="{{objectID}}">
-               {{objectID}}
-                {{race}}
-                {{class}}
-               {{level}}
+               <h3> {{objectID}} {{race}} {{class}} </h3>
            </a>
-          <a href="{{objectID}}">   <img src="{{image}}"/> </a>
+          <a href="{{objectID}}">   <img class="img-responsive" src="{{image}}"/> </a>
         </li>
     {{/each}}
     </ul>
