@@ -35,13 +35,15 @@
     <div class="panel panel-default">
         <div class="panel-body">
     <div class="row">
-        <div class="col-xs-12 col-md-2">
+        <div class="col-xs-12 col-hp-1">
             <div class="info-label">Hit Points</div>
             <input type="text" class="form-control info-content" value={{character.hitPoints}}></input>
         </div>
     </div>
         </div>
     </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
         <div class="attributes row">
         {{#eachProperty character.attributes}}
         <div class="col-atr-1">
@@ -50,10 +52,14 @@
         </div>
         {{/eachProperty}}
         </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
     <div class="skill row">
         <div class="col-tbl-1">
             <div class="info-label">Skills</div>
-            <table class="skill-table .table-hover">
+            <table class="skill-table">
         {{#eachProperty character.skills}}
             <tr>
                 <td class="skill-name">{{property}}</td>
@@ -62,5 +68,7 @@
         {{/eachProperty}}
             </table>
             </div>
+    </div>
+        </div>
     </div>
 </div>

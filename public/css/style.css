@@ -87,9 +87,6 @@ th {
 .col-tbl-1{
   float: left;
 }
-.col-atr-1 {
-  width:8%;
-}
 .skill.row, .attributes.row {
   display:inline;
 }
@@ -97,12 +94,29 @@ th {
   width: 64%;
   float: right;
   text-align: right;
+  border:none;
 }
 .skill-table {
   width:170px;
   font-size: 16px;
   font-weight: 500;
+  border-bottom: 2px solid rgba(49, 112, 143, 0.63);
 }
 .skill-name {
   width: 115px;
 }
+tr {
+  border-bottom: 1px solid rgba(49, 112, 143, 0.16);
+  border-left: 2px solid rgba(49, 112, 143, 0.63);
+  border-right: 2px solid rgba(49, 112, 143, 0.63);
+}
+.panel-default {
+  display:inline-block;
+}
+tr:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.07);
+}
+input.skill-value {
+  background-color: rgba(0, 0, 0, 0);
+}
+
