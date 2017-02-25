@@ -14,9 +14,13 @@
     "handlebars-helpers": "^0.8.0",
     "hbs": "~4.0.1",
     "jquery": "^3.1.1",
+    "jquery-ui": "^1.12.1",
     "mongodb": "^2.2.24",
     "morgan": "~1.7.0",
     "nodemon": "^1.11.0",
     "serve-favicon": "~2.3.2"
+  },
+  "devDependencies": {
+    "gridstack": "^0.2.6"
   }
 }
