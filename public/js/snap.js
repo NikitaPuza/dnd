@@ -1,39 +1,35 @@
-/**
- * Created by nikita.puzanenko on 2/24/17.
- */
-$(document).ready(function () {
-    var element = document.getElementsByClassName('.center'),
-        x = 0, y = 0;
-    interact('.panel')
+$(document).ready(function() {
+    interact('.panel-default')
         .draggable({
             snap: {
-                mode:'anchor',
                 targets: [
-                    interact.createSnapGrid({x: 10, y: 10})
+                    interact.createSnapGrid({x: 20, y: 20})
                 ],
-                range: 10,
-                offset: 'startCoords',
-                relativePoints: [{x: .5, y: .5}]
+                range: Infinity,
+                relativePoints: [{x: 0, y: 0}]
             },
-            inertia: false,
-            restrict: {
-                restriction: element,
-                elementRect: {top: 0, left: 0, bottom: 0, right: 0},
-                endOnly: true
-            }
-        })
-        .origin('parent')
-        .on('dragmove', function (event) {
-            x += event.dx;
-            y += event.dy;
+        restrict: {
+            restriction: "parent",
+            endOnly: true,
+            elementRect: {top: 0, left: 0, bottom: 1, right: 1}
+        },
+        autoScroll: true,
 
-            event.target.style.webkitTransform =
-                event.target.style.transform =
-                    'translate(' + x + 'px, ' + y + 'px)';
-        });
-    interact.on('dragend', function (event) {
-        console.log(event.dx, event.dy);
-        x=0
-        y=0
+        onmove: dragMoveListener,
     });
+
+    function dragMoveListener(event) {
+        var target = event.target,
+            x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+            y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+        target.style.webkitTransform =
+            target.style.transform =
+                'translate(' + x + 'px, ' + y + 'px)';
+
+        target.setAttribute('data-x', x);
+        target.setAttribute('data-y', y);
+    }
+
+    window.dragMoveListener = dragMoveListener;
 });
