@@ -72,16 +72,22 @@
 
     <div class="panel-default atr-panel">
         <div class="panel-body">
-            <div class="attributes row">
-                {{#eachProperty character.attributes}}
-                    <div class="col-atr-1">
-                        <div class="info-label">{{property}}</div>
-                        <input type="text" class="info-content" value={{value}}>
-                    </div>
+            <div class="ability row">
+                <div class="col-tbl-1">
+                    <div class="info-label">Ability scores</div>
+                    <table class="ability-table">
+                        {{#eachProperty character.attributes}}
+                            <tr>
+                                <td class="skill-name">{{property}}</td>
+                                <td><input class="skill-value" type="text" value={{value}}></td>
+                            </tr>
                 {{/eachProperty}}
+                    </table>
+                </div>
             </div>
         </div>
     </div>
+</div>
 
 
     <div class="panel-default skills-panel">
