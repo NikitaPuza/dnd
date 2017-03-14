@@ -1,6 +1,8 @@
 <h1>{{character.objectID}}</h1>
 
 <a href="/">back to character select</a>
+<button class="edit-position">Edit Position</button>
+<button class="save-position hidden">Save Position</button>
 <div id="grid-snap">
 
     <div class="info-panel panel-default">
@@ -8,29 +10,29 @@
             <div class="row info">
                 <div class="col-md-2">
                     <div class="info-label">Class</div>
-                    <input type="text" class="info-content" value={{character.class}}>
+                    <input type="text" id="class" class="info-content" value={{character.class}}>
                 </div>
                 <div class="col-md-2">
                     <div class="info-label">Race</div>
-                    <input type="text" class="info-content" value={{character.race}}>
+                    <input type="text" id="race" class="info-content" value={{character.race}}>
                 </div>
                 <div class="col-md-2">
                     <div class="info-label">Level</div>
-                    <input type="text" class="info-content" value={{character.level}}>
+                    <input type="text" id="level" class="info-content" value={{character.level}}>
                 </div>
                 <div class="col-md-2">
                     <div class="info-label">Armor Class</div>
-                    <input type="text" class="info-content"
+                    <input type="text" id="armor-class" class="info-content"
                            value={{character.armorClass}}>
                 </div>
                 <div class="col-md-2">
                     <div class="info-label">Spell Save</div>
-                    <input type="text" class="info-content"
+                    <input type="text" id="spell-save" class="info-content"
                            value={{character.spellSave}}>
                 </div>
                 <div class="col-md-2">
                     <div class="info-label">Initiative</div>
-                    <input type="text" class="info-content"
+                    <input type="text" id="initiative" class="info-content"
                            value={{character.initiative}}>
                 </div>
             </div>
@@ -43,7 +45,7 @@
             <div class="row hp">
                 <div class="col-hp-1">
                     <div class="info-label">Hit Points</div>
-                    <input type="text" class="info-content"
+                    <input type="text" id="hit-points" class="info-content"
                            value={{character.hitPoints}}>
                 </div>
             </div>
@@ -60,7 +62,7 @@
                         {{#eachProperty character.savingThrows}}
                             <tr>
                                 <td class="skill-name">{{property}}</td>
-                                <td><input class="skill-value" type="text" value={{value}}></td>
+                                <td><input class="skill-value" id="{{{property}}}" type="text" value={{value}}></td>
                             </tr>
                         {{/eachProperty}}
                     </table>
@@ -79,7 +81,7 @@
                         {{#eachProperty character.attributes}}
                             <tr>
                                 <td class="skill-name">{{property}}</td>
-                                <td><input class="skill-value" type="text" value={{value}}></td>
+                                <td><input class="skill-value" id="{{{property}}}" type="text" value={{value}}></td>
                             </tr>
                 {{/eachProperty}}
                     </table>
@@ -99,7 +101,7 @@
                         {{#eachProperty character.skills}}
                             <tr>
                                 <td class="skill-name">{{property}}</td>
-                                <td><input class="skill-value" type="text" value={{value}}></td>
+                                <td><input class="skill-value" id="{{{property}}}" type="text" value={{value}}></td>
                             </tr>
                         {{/eachProperty}}
                     </table>

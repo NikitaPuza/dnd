@@ -157,3 +157,9 @@ input.skill-value {
 .col-atr-1:not(:last-child), .col-md-2:not(:last-child) {
     margin-bottom:6%;
 }
+.visible {
+    display:inline-block;
+}
+.hidden {
+    display:none;
+}
