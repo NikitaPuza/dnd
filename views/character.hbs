@@ -5,7 +5,7 @@
 <button class="save-position hidden">Save Position</button>
 <div id="grid-snap">
 
-    <div class="info-panel panel-default">
+    <div class="info-panel panel-default" data-x="{{{character.positions.infodatax}}}" data-y="{{{character.positions.infodatay}}}" style="{{{character.positions.infostyle}}}">
         <div class="panel-body">
             <div class="row info">
                 <div class="col-md-2">
@@ -40,7 +40,7 @@
     </div>
 
 
-    <div class="panel-default hp-panel">
+    <div class="panel-default hp-panel" data-x="{{{character.positions.hpdatax}}}" data-y="{{{character.positions.hpdatay}}}" style="{{{character.positions.hpstyle}}}">
         <div class="panel-body">
             <div class="row hp">
                 <div class="col-hp-1">
@@ -53,7 +53,7 @@
     </div>
 
 
-    <div class="panel-default st-panel">
+    <div class="panel-default st-panel" data-x="{{{character.positions.stdatax}}}" data-y="{{{character.positions.stdatay}}}" style="{{{character.positions.ststyle}}}">
         <div class="panel-body">
             <div class="skill row">
                 <div class="col-tbl-1">
@@ -72,11 +72,11 @@
     </div>
 
 
-    <div class="panel-default atr-panel">
+    <div class="panel-default atr-panel" data-x="{{{character.positions.atrdatax}}}" data-y="{{{character.positions.atrdatay}}}" style="{{{character.positions.atrstyle}}}">
         <div class="panel-body">
             <div class="ability row">
                 <div class="col-tbl-1">
-                    <div class="info-label">Ability scores</div>
+                    <div class="info-label">Ability scores <button class="submit{{{character.objectID}}}" type="submit"></button></div>
                     <table class="ability-table">
                         {{#eachProperty character.attributes}}
                             <tr>
@@ -89,10 +89,8 @@
             </div>
         </div>
     </div>
-</div>
 
-
-    <div class="panel-default skills-panel">
+    <div class="panel-default skills-panel" data-x="{{{character.positions.skillsdatax}}}" data-y="{{{character.positions.skillsdatay}}}" style="{{{character.positions.skillsstyle}}}">
         <div class="panel-body">
             <div class="skill row">
                 <div class="col-tbl-1">
@@ -110,6 +108,6 @@
         </div>
     </div>
 
-
+</div>
 </div>
 </div>

@@ -163,3 +163,6 @@ input.skill-value {
 .hidden {
     display:none;
 }
+.submitGimble {
+    float:right;
+}

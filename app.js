@@ -50,6 +50,33 @@ app.get('/:character',function(req, res) {
     })
 });
 
+app.post('/:character/save',function(req, res) {
+    postdata = req.body;
+    index.partialUpdateObject({
+        positions: {
+            hpstyle: postdata.hpstyle,
+            hpdatay: postdata.hpdatay,
+            hpdatax: postdata.hpdatax,
+            atrstyle: postdata.atrstyle,
+            atrdatay: postdata.atrdatay,
+            atrdatax: postdata.atrdatax,
+            ststyle: postdata.ststyle,
+            stdatay: postdata.stdatay,
+            stdatax: postdata.stdatax,
+            infostyle: postdata.infostyle,
+            infodatay: postdata.infodatay,
+            infodatax: postdata.infodatax,
+            skillsstyle: postdata.skillsstyle,
+            skillsdatay: postdata.skillsdatay,
+            skillsdatax: postdata.skillsdatax
+        },
+        objectID: req.params.character
+    }, function(err, content) {
+        console.log(content);
+    });
+    res.send("saved");
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
